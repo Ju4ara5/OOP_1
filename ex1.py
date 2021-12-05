@@ -37,4 +37,4 @@ class Point:
 pt = Point(1, 2)
 print(pt.__dict__)
 
-
+# 4*  4:30 перерыв
