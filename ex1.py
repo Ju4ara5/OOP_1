@@ -13,28 +13,26 @@
 # __dict__ - содержит набор атрибутов экземнляра класса
 # __init__ - инициализатор обьекта класса
 # __del__ - финализатор класса
+# __new__ - вызываеся перед созданием обьекта класса
+# cls - ссылается на текущий экземпляр класса
+# self - ссылается на создаваемый экземпляр класса
 
 
 
 
 class Point:
-    '''Класс для представления координат точек на плоскости'''
-    color = 'red'
-    circle = 2
 
-    def __init__(self, a, b):
-        print('вызов __init__')
-        self.x = a
-        self.y = b
+    def __new__(cls, *args, **kwargs):
+        print('Вызов __new__ ', str(cls))
 
-    def set_coords(self, x, y):
+    def __init__(self, x=0, y=0):
+        print('вызов __init__ ', str(self))
         self.x = x
         self.y = y
 
-    def get_coords(self):
-        return (self.x, self.y)
+pt = Point()
 
-pt = Point(1, 2)
-print(pt.__dict__)
 
-# 4*  4:30 перерыв
+
+
+
