@@ -16,6 +16,7 @@
 # __new__ - вызываеся перед созданием обьекта класса
 # cls - ссылается на текущий экземпляр класса
 # self - ссылается на создаваемый экземпляр класса
+# super() - ссылка на базовый класс
 
 
 
@@ -24,14 +25,15 @@ class Point:
 
     def __new__(cls, *args, **kwargs):
         print('Вызов __new__ ', str(cls))
+        return super().__new__(cls)
 
     def __init__(self, x=0, y=0):
         print('вызов __init__ ', str(self))
         self.x = x
         self.y = y
 
-pt = Point()
-
+pt = Point(1, 2)
+print(pt)
 
 
 
