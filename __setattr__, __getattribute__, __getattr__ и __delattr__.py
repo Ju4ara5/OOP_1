@@ -18,7 +18,7 @@ class Point:
 
 
     def __getattribute__(self, item):  # автоматически запускается при обращении к какому либо атрибуту класса
-        print('__getattribute__: ', item)
+        #print('__getattribute__: ', item)
         if item == 'x':  # запрещаем доступ к атрибуту x.
             raise ValueError('Доступ к "x" запрещен')  # сгенерировать ошибку
         else:
@@ -36,9 +36,22 @@ class Point:
             object.__setattr__(self, key, value)
 
 
+# вызывается автоматически когда идет обращение к несуществующему атрибуту экземпляра класса:
+#  можно использовать для избежания ошибки работы программы
+    def __getattr__(self, item):
+        print('__getattr__: ', 'атрибут', item, 'не существует.')
+        return False
+
+# вызываетя когда удаляется атрибут экземпляра! класса:
+    def __delattr__(self, item):
+        print('__delattr__', item)
+        object.__delattr__(self, item)
+
+
 pt1 = Point(1, 2)
 pt2 = Point(10, 20)
 
 #  a = pt1.x  #  Доступ к "x" запрещен. т.к. это прописано в методе __getattribute__
 #pt1.z = 5  # AttributeError: Запрещенное имя атрибута. прописано в __setattr__
+
 
