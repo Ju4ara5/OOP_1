@@ -16,7 +16,6 @@ class Person:
         del self.__old
 
 
-
 p = Person('Сергей', 20)
 del p.old
 p.old = 5
