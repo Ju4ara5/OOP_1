@@ -1,2 +1,3 @@
 # OOP_1
-конспект
+КОНСПЕКТ
+Источник: https://www.youtube.com/channel/UClJzWfGWuGJL2t-3dYKcHTA
